@@ -1,45 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medicine Information</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h1>💊 Medicine Information</h1>
+    <h1>💊 Medicine Information</h1>
 
-<div class="card">
+    <div class="card">
 
-<h2>Paracetamol 500 mg</h2>
+        <h2 id="medicineName">Paracetamol 500 mg</h2>
 
-<p id="info">
-<b>Uses:</b> Reduces fever and pain.<br><br>
+        <!-- Optional: Add your medicine image -->
+        <!-- <img src="medicine.png" width="150"> -->
 
-<b>Dosage:</b> Take one tablet after food.<br><br>
+        <p id="info">
 
-<b>Side Effects:</b> Nausea, dizziness.<br><br>
+            <b>Uses:</b> Reduces fever and pain.<br><br>
 
-<b>Expiry Date:</b> 09-Jan-2028<br><br>
+            <b>Dosage:</b> Take one tablet after food.<br><br>
 
-<b>Manufacturer:</b> ABC Pharma
-</p>
+            <b>Side Effects:</b> Nausea, dizziness.<br><br>
 
-<select id="language">
-<option value="en">English</option>
-<option value="te">Telugu</option>
-<option value="hi">Hindi</option>
-<option value="ta">Tamil</option>
-</select>
+            <b>Expiry Date:</b> 09-Jan-2028<br><br>
 
-<br><br>
+            <b>Manufacturer:</b> ABC Pharma
 
-<button onclick="translateText()">Translate</button>
+        </p>
 
-<button onclick="speakText()">🔊 Voice</button>
+        <label><b>Select Language:</b></label>
+        <br><br>
 
-</div>
+        <select id="language" onchange="translateText()">
 
-<script src="script.js"></script>
+            <option value="en">English</option>
+
+            <option value="te">తెలుగు</option>
+
+            <option value="hi">हिन्दी</option>
+
+            <option value="ta">தமிழ்</option>
+
+        </select>
+
+        <br><br>
+
+        <button onclick="speakText()">🔊 Voice</button>
+
+    </div>
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
