@@ -54,7 +54,6 @@ function translateText() {
 
 // Voice
 function speakText() {
-     alert("Voice button clicked");
     // Stop previous speech
     window.speechSynthesis.cancel();
 
@@ -77,5 +76,4 @@ function speakText() {
     }
 
     window.speechSynthesis.speak(speech);
-}
 }
