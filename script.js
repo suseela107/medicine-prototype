@@ -77,6 +77,9 @@ function speakText() {
 
     window.speechSynthesis.speak(speech);
 }
+function stopVoice() {
+    window.speechSynthesis.cancel();
+}
 function resetPage(){
 
     document.getElementById("language").value = "en";
