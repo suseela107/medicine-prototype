@@ -58,21 +58,24 @@ function speakText() {
     // Stop previous speech
     window.speechSynthesis.cancel();
 
-    let text = document.getElementById("info").innerText;
+    const text = document.getElementById("info").innerText;
 
-    let speech = new SpeechSynthesisUtterance(text);
+    const speech = new SpeechSynthesisUtterance();
 
-    let lang = document.getElementById("language").value;
+    speech.text = text;
 
-    if (lang == "en") {
+    const lang = document.getElementById("language").value;
+
+    if (lang === "en") {
         speech.lang = "en-US";
-    } else if (lang == "te") {
+    } else if (lang === "te") {
         speech.lang = "te-IN";
-    } else if (lang == "hi") {
+    } else if (lang === "hi") {
         speech.lang = "hi-IN";
-    } else if (lang == "ta") {
+    } else if (lang === "ta") {
         speech.lang = "ta-IN";
     }
 
     window.speechSynthesis.speak(speech);
+}
 }
