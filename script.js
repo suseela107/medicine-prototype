@@ -1,3 +1,4 @@
+// Medicine information in different languages
 const medicineInfo = {
     en: {
         name: "Paracetamol 500 mg",
@@ -14,7 +15,7 @@ const medicineInfo = {
         dosage: "భోజనం తర్వాత ఒక మాత్ర తీసుకోండి.",
         sideEffects: "వికారం, తల తిరగడం.",
         expiry: "09-Jan-2028",
-        manufacturer: "ABC Pharma"
+        manufacturer: "ABC ఫార్మా"
     },
 
     hi: {
@@ -36,16 +37,42 @@ const medicineInfo = {
     }
 };
 
+// Change language
 function translateText() {
-    const lang = document.getElementById("language").value;
 
-    document.querySelector("h2").innerText = medicineInfo[lang].name;
+    let lang = document.getElementById("language").value;
 
-    document.getElementById("info").innerHTML = `
-        <b>Uses:</b> ${medicineInfo[lang].uses}<br><br>
-        <b>Dosage:</b> ${medicineInfo[lang].dosage}<br><br>
-        <b>Side Effects:</b> ${medicineInfo[lang].sideEffects}<br><br>
-        <b>Expiry Date:</b> ${medicineInfo[lang].expiry}<br><br>
-        <b>Manufacturer:</b> ${medicineInfo[lang].manufacturer}
-    `;
+    document.getElementById("medicineName").innerText = medicineInfo[lang].name;
+
+    document.getElementById("info").innerHTML =
+        "<b>Uses:</b> " + medicineInfo[lang].uses + "<br><br>" +
+        "<b>Dosage:</b> " + medicineInfo[lang].dosage + "<br><br>" +
+        "<b>Side Effects:</b> " + medicineInfo[lang].sideEffects + "<br><br>" +
+        "<b>Expiry Date:</b> " + medicineInfo[lang].expiry + "<br><br>" +
+        "<b>Manufacturer:</b> " + medicineInfo[lang].manufacturer;
+}
+
+// Voice
+function speakText() {
+
+    // Stop previous speech
+    window.speechSynthesis.cancel();
+
+    let text = document.getElementById("info").innerText;
+
+    let speech = new SpeechSynthesisUtterance(text);
+
+    let lang = document.getElementById("language").value;
+
+    if (lang == "en") {
+        speech.lang = "en-US";
+    } else if (lang == "te") {
+        speech.lang = "te-IN";
+    } else if (lang == "hi") {
+        speech.lang = "hi-IN";
+    } else if (lang == "ta") {
+        speech.lang = "ta-IN";
+    }
+
+    window.speechSynthesis.speak(speech);
 }
