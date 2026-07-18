@@ -77,3 +77,12 @@ function speakText() {
 
     window.speechSynthesis.speak(speech);
 }
+function resetPage(){
+
+    document.getElementById("language").value = "en";
+
+    translateText();
+
+    window.speechSynthesis.cancel();
+
+}
