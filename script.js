@@ -1,7 +1,12 @@
+let speaking = false;
+
 function speakText() {
 
-    // Stop any speech that is already playing
-    window.speechSynthesis.cancel();
+    if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+        speaking = false;
+        return;
+    }
 
     const text = document.getElementById("info").innerText;
     const language = document.getElementById("language").value;
@@ -22,5 +27,10 @@ function speakText() {
             speech.lang = "en-US";
     }
 
+    speech.onend = function () {
+        speaking = false;
+    };
+
+    speaking = true;
     window.speechSynthesis.speak(speech);
 }
